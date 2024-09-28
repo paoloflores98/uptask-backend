@@ -6,14 +6,12 @@ export const corsConfig: CorsOptions = {
     // process.arg[2]: Verifica si el tercer argumento pasado al ejecutar un script de Node.js es la cadena "--api" (Puede ser otra)
     if(process.argv[2] === '--api') {
       whiteList.push(undefined);
-      console.log(whiteList);
     }
 
     // Comprobar si el origin es uno de las rutas del whiteList
     if(whiteList.includes(origin)) {
       callback(null, true);
     }else {
-      console.log(origin);
       callback(new Error('Error de CORS'));
     }
   }
